@@ -1,5 +1,7 @@
+import CreateCardButton from '@/components/create_card_button'
+
 function App() {
-	return <div>teste</div>
+	return <CreateCardButton />
 }
 
 export default App
