@@ -3,11 +3,6 @@ import { Plus } from 'lucide-react'
 import { Rnd } from 'react-rnd'
 import { Button } from './ui'
 
-type LastPositionProps = {
-	x: number
-	y: number
-}
-
 type CardPropertiesProps = {
 	id: number
 	title: string
@@ -16,8 +11,20 @@ type CardPropertiesProps = {
 	lastPosition: LastPositionProps
 }
 
+type LastPositionProps = {
+	x: number
+	y: number
+}
+
+type HandleEditCardProps = {
+	id: number
+	x: number
+	y: number
+}
+
 const CreateCardButton = () => {
 	const [cardsProperties, setCardsProperties] = useLocalStorage<CardPropertiesProps[]>('cardProperties', [])
+
 	const emptyCard = {
 		id: cardsProperties.length + 1,
 		title: '',
@@ -29,6 +36,14 @@ const CreateCardButton = () => {
 	const handleCreateCard = () => {
 		setCardsProperties([...cardsProperties, emptyCard])
 	}
+	const handleEditCard = ({ id, x, y }: HandleEditCardProps) => {
+		setCardsProperties(
+			cardsProperties.map((cardProperties) =>
+				cardProperties.id === id ? { ...cardProperties, lastPosition: { x, y } } : cardProperties,
+			),
+		)
+	}
+
 	return (
 		<>
 			<Button variant="outline" onClick={() => handleCreateCard()}>
@@ -36,15 +51,19 @@ const CreateCardButton = () => {
 			</Button>
 
 			{cardsProperties.map((cardProperties) => {
-				console.log(cardProperties.id)
 				return (
 					<Rnd
 						className="bg-red-500"
 						id={cardProperties.id}
 						key={cardProperties.id}
-						default={{ width: 'auto', height: 'auto', x: 100, y: 100 }}
-						// onDragStop={(_, d) => console.log(d)}
-						// onDragStart={(_, d) => console.log(d.node.id)}
+						bounds="window"
+						default={{
+							width: 'auto',
+							height: 'auto',
+							x: cardProperties.lastPosition.x,
+							y: cardProperties.lastPosition.y,
+						}}
+						onDragStop={(_, d) => handleEditCard({ id: Number(d.node.id), x: d.lastX, y: d.lastY })}
 					>
 						teste
 					</Rnd>
