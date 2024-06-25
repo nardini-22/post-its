@@ -1,52 +1,14 @@
-import { useLocalStorage } from '@/hooks'
+import { useCreateCardContext } from '@/contexts'
 import { Plus } from 'lucide-react'
 import { Rnd } from 'react-rnd'
 import { Button } from './ui'
 
-type CardPropertiesProps = {
-	id: number
-	title: string
-	description: string
-	color: string
-	lastPosition: LastPositionProps
-}
-
-type LastPositionProps = {
-	x: number
-	y: number
-}
-
-type HandleEditCardProps = {
-	id: number
-	x: number
-	y: number
-}
-
 const CreateCardButton = () => {
-	const [cardsProperties, setCardsProperties] = useLocalStorage<CardPropertiesProps[]>('cardProperties', [])
-
-	const emptyCard = {
-		id: cardsProperties.length + 1,
-		title: '',
-		description: '',
-		color: '',
-		lastPosition: { x: 0, y: 0 },
-	}
-
-	const handleCreateCard = () => {
-		setCardsProperties([...cardsProperties, emptyCard])
-	}
-	const handleEditCard = ({ id, x, y }: HandleEditCardProps) => {
-		setCardsProperties(
-			cardsProperties.map((cardProperties) =>
-				cardProperties.id === id ? { ...cardProperties, lastPosition: { x, y } } : cardProperties,
-			),
-		)
-	}
+	const { cardsProperties, handleCreateEmptyCard, handleEditCardProperties } = useCreateCardContext()
 
 	return (
 		<>
-			<Button variant="outline" onClick={() => handleCreateCard()}>
+			<Button variant="outline" onClick={() => handleCreateEmptyCard()}>
 				<Plus />
 			</Button>
 
@@ -63,7 +25,9 @@ const CreateCardButton = () => {
 							x: cardProperties.lastPosition.x,
 							y: cardProperties.lastPosition.y,
 						}}
-						onDragStop={(_, d) => handleEditCard({ id: Number(d.node.id), x: d.lastX, y: d.lastY })}
+						onDragStop={(_, d) =>
+							handleEditCardProperties(Number(d.node.id), { lastPosition: { x: d.lastX, y: d.lastY } })
+						}
 					>
 						teste
 					</Rnd>
