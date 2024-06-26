@@ -12,6 +12,7 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 		description: '',
 		color: '',
 		lastPosition: { x: 0, y: 0 },
+		lastSize: { height: 0, width: 0 },
 	}
 
 	const handleCreateEmptyCard = () => {
@@ -19,7 +20,6 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 	}
 
 	const handleEditCardProperties = (id: number, changeObject: object) => {
-		console.log(typeof changeObject)
 		setCardsProperties(
 			cardsProperties.map((cardProperties) =>
 				cardProperties.id === id ? { ...cardProperties, ...changeObject } : cardProperties,
@@ -29,7 +29,12 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 
 	return (
 		<CreateCardContext.Provider
-			value={{ cardsProperties, setCardsProperties, handleCreateEmptyCard, handleEditCardProperties }}
+			value={{
+				cardsProperties,
+				setCardsProperties,
+				handleCreateEmptyCard,
+				handleEditCardProperties,
+			}}
 		>
 			{children}
 		</CreateCardContext.Provider>

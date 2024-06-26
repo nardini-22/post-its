@@ -5,12 +5,8 @@ export type CardPropertiesProps = {
 	title: string
 	description: string
 	color: string
-	lastPosition: LastPositionProps
-}
-
-export type LastPositionProps = {
-	x: number
-	y: number
+	lastPosition: { x: number; y: number }
+	lastSize: { height: number; width: number }
 }
 
 export type CreateCardContextTypes = {

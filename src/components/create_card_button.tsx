@@ -20,13 +20,19 @@ const CreateCardButton = () => {
 						key={cardProperties.id}
 						bounds="window"
 						default={{
-							width: 'auto',
-							height: 'auto',
-							x: cardProperties.lastPosition.x,
-							y: cardProperties.lastPosition.y,
+							height: cardProperties.lastSize.height || 'auto',
+							width: cardProperties.lastSize.width || 'auto',
+							x: cardProperties.lastPosition.x || 100,
+							y: cardProperties.lastPosition.y || 100,
 						}}
 						onDragStop={(_, d) =>
 							handleEditCardProperties(Number(d.node.id), { lastPosition: { x: d.lastX, y: d.lastY } })
+						}
+						onResizeStop={(_, __, ref, ___, position) =>
+							handleEditCardProperties(Number(ref.id), {
+								lastPosition: { x: position.x, y: position.y },
+								lastSize: { height: ref.offsetHeight, width: ref.offsetWidth },
+							})
 						}
 					>
 						teste
