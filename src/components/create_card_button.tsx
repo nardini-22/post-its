@@ -1,7 +1,7 @@
+import { Button } from '@/components'
 import { useCreateCardContext } from '@/contexts'
 import { Plus } from 'lucide-react'
 import { Rnd } from 'react-rnd'
-import { Button } from './ui'
 
 const CreateCardButton = () => {
 	const { cardsProperties, handleCreateEmptyCard, handleEditCardProperties } = useCreateCardContext()

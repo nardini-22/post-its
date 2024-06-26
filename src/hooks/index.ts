@@ -1,2 +1,2 @@
-export * from './useLocalStorage'
-export * from './useViewport'
+export * from '@/hooks/useLocalStorage'
+export * from '@/hooks/useViewport'
