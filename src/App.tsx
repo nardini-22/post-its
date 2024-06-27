@@ -1,4 +1,4 @@
-import CreateCardButton from '@/components/create_card_button'
+import { CreateCardButton } from '@/components'
 
 function App() {
 	return <CreateCardButton />
