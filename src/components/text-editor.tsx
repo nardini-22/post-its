@@ -25,9 +25,16 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			},
 		},
 		onUpdate: ({ editor }) => {
-			handleEditCardProperties(Number(editor.options.element.id), { content: editor.getText() })
+			handleEditCardProperties(Number(editor.options.element.id), { content: editor.getHTML() })
 		},
 	})
 
-	return <EditorContent ref={textEditorRef} id={id.toString()} className="cursor-text p-2" editor={editor} />
+	return (
+		<EditorContent
+			ref={textEditorRef}
+			id={id.toString()}
+			className="cursor-text p-2 prose prose-neutral prose-sm"
+			editor={editor}
+		/>
+	)
 }
