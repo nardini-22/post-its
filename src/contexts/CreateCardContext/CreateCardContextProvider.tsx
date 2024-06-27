@@ -24,8 +24,7 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 
 	const emptyCard = {
 		id: cardsProperties.length + 1,
-		title: '',
-		description: '',
+		content: '',
 		color: '',
 		lastPosition: { x: 0, y: 0 },
 		lastSize: { height: 0, width: 0 },

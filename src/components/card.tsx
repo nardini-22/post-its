@@ -1,12 +1,14 @@
 import { TextEditor } from '@/components'
 import { Rnd, type Props } from 'react-rnd'
 
-export interface CardProps extends Props {}
+export interface CardProps extends Props {
+	content: string
+}
 
 export const Card = (props: CardProps) => {
 	return (
 		<Rnd {...props}>
-			<TextEditor id={props.id} />
+			<TextEditor id={props.id} content={props.content} />
 		</Rnd>
 	)
 }
