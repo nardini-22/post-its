@@ -1,9 +1,8 @@
-import { Button } from '@/components'
+import { Button, Card } from '@/components'
 import { useCreateCardContext } from '@/contexts'
 import { Plus } from 'lucide-react'
-import { Rnd } from 'react-rnd'
 
-const CreateCardButton = () => {
+export const CreateCardButton = () => {
 	const { cardsProperties, handleCreateEmptyCard, handleEditCardProperties } = useCreateCardContext()
 
 	return (
@@ -14,7 +13,7 @@ const CreateCardButton = () => {
 
 			{cardsProperties.map((cardProperties) => {
 				return (
-					<Rnd
+					<Card
 						className="bg-red-500"
 						id={cardProperties.id}
 						key={cardProperties.id}
@@ -34,13 +33,9 @@ const CreateCardButton = () => {
 								lastSize: { height: ref.offsetHeight, width: ref.offsetWidth },
 							})
 						}
-					>
-						teste
-					</Rnd>
+					/>
 				)
 			})}
 		</>
 	)
 }
-
-export default CreateCardButton
