@@ -1,8 +1,13 @@
+import { useCreateCardContext } from '@/contexts'
 import Placeholder from '@tiptap/extension-placeholder'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 
-export const TextEditor = () => {
+interface TextEditorProps {
+	id: number
+}
+
+export const TextEditor = ({ id }: TextEditorProps) => {
 	const editor = useEditor({
 		extensions: [
 			StarterKit,
@@ -16,6 +21,7 @@ export const TextEditor = () => {
 			},
 		},
 	})
+	const { textEditorRef } = useCreateCardContext()
 
-	return <EditorContent className="cursor-text p-2" editor={editor} />
+	return <EditorContent ref={textEditorRef} id={id.toString()} className="cursor-text p-2" editor={editor} />
 }

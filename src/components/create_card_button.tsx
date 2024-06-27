@@ -24,6 +24,8 @@ export const CreateCardButton = () => {
 							x: cardProperties.lastPosition.x || 100,
 							y: cardProperties.lastPosition.y || 100,
 						}}
+						minHeight={cardProperties.textEditorHeight}
+						minWidth={200}
 						onDragStop={(_, d) =>
 							handleEditCardProperties(Number(d.node.id), { lastPosition: { x: d.lastX, y: d.lastY } })
 						}

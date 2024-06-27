@@ -6,7 +6,7 @@ export interface CardProps extends Props {}
 export const Card = (props: CardProps) => {
 	return (
 		<Rnd {...props}>
-			<TextEditor />
+			<TextEditor id={props.id} />
 		</Rnd>
 	)
 }
