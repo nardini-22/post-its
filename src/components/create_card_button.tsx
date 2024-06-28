@@ -3,7 +3,7 @@ import { useCreateCardContext } from '@/contexts'
 import { Plus } from 'lucide-react'
 
 export const CreateCardButton = () => {
-	const { cardsProperties, handleCreateEmptyCard, handleEditCardProperties } = useCreateCardContext()
+	const { cardsProperties, handleCreateEmptyCard, handleEditCardProperties, disableDragging } = useCreateCardContext()
 
 	return (
 		<>
@@ -28,6 +28,7 @@ export const CreateCardButton = () => {
 						minWidth={200}
 						content={cardProperties.content}
 						enableUserSelectHack={false}
+						disableDragging={disableDragging}
 						onDragStop={(_, d) =>
 							handleEditCardProperties(Number(d.node.id), { lastPosition: { x: d.lastX, y: d.lastY } })
 						}

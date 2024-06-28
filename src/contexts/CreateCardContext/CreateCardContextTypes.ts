@@ -21,4 +21,6 @@ export type CreateCardContextTypes = {
 	handleEditCardProperties: (id: number, changeObject: object) => void
 	textEditorProperties: TextEditorPropertiesProps
 	textEditorRef: (node: HTMLElement | null) => void
+	disableDragging: boolean
+	setDisableDragging: Dispatch<SetStateAction<CreateCardContextTypes['disableDragging']>>
 }

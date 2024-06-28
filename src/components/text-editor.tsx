@@ -11,7 +11,7 @@ interface TextEditorProps {
 }
 
 export const TextEditor = ({ id, content }: TextEditorProps) => {
-	const { textEditorRef, handleEditCardProperties } = useCreateCardContext()
+	const { textEditorRef, handleEditCardProperties, setDisableDragging } = useCreateCardContext()
 	const editor = useEditor({
 		extensions: [
 			StarterKit,
@@ -29,6 +29,12 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 		},
 		onUpdate: ({ editor }) => {
 			handleEditCardProperties(Number(editor.options.element.id), { content: editor.getHTML() })
+		},
+		onFocus: () => {
+			setDisableDragging(true)
+		},
+		onBlur: () => {
+			setDisableDragging(false)
 		},
 	})
 
