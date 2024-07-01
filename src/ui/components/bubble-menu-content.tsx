@@ -26,41 +26,41 @@ export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
 					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleBold().run()}
 						className={editor.isActive('bold') ? 'is-active' : ''}
-						icon={<Bold size={16} />}
+						content={<Bold size={16} />}
 					/>
 					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleItalic().run()}
 						className={editor.isActive('italic') ? 'is-active' : ''}
-						icon={<Italic size={16} />}
+						content={<Italic size={16} />}
 					/>
 					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleUnderline().run()}
 						className={editor.isActive('underline') ? 'is-active' : ''}
-						icon={<Underline size={16} />}
+						content={<Underline size={16} />}
 					/>
 					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleStrike().run()}
 						className={editor.isActive('strike') ? 'is-active' : ''}
-						icon={<Strikethrough size={16} />}
+						content={<Strikethrough size={16} />}
 					/>
 					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleCode().run()}
 						className={editor.isActive('code') ? 'is-active' : ''}
-						icon={<Code size={16} />}
+						content={<Code size={16} />}
 					/>
 					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleCodeBlock().run()}
 						className={editor.isActive('codeBlock') ? 'is-active' : ''}
-						icon={<CodeXml size={16} />}
+						content={<CodeXml size={16} />}
 					/>
 					<BubbleMenuButton
 						className={editor.isActive('link') ? 'is-active' : ''}
-						icon={<Link size={16} />}
+						content={<Link size={16} />}
 						popover={<BubbleMenuLink editor={editor} />}
 					/>
 					<BubbleMenuButton
 						className={`relative ${editor.isActive('highlight') ? 'is-active' : ''}`}
-						icon={
+						content={
 							<>
 								<Highlighter size={16} />
 								<Input
@@ -74,7 +74,7 @@ export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
 					/>
 					<BubbleMenuButton
 						className={`relative ${editor.isActive('textStyle') ? 'is-active' : ''}`}
-						icon={
+						content={
 							<>
 								<Palette size={16} />
 								<Input
@@ -86,8 +86,11 @@ export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
 							</>
 						}
 					/>
-					<BubbleMenuButton popover={<BubbleMenuMoreOptions editor={editor} />} icon={<EllipsisVertical size={16} />} />
-					<BubbleMenuButton onClick={() => editor.chain().focus().unsetAllMarks().run()} icon={<Undo size={16} />} />
+					<BubbleMenuButton
+						popover={<BubbleMenuMoreOptions editor={editor} />}
+						content={<EllipsisVertical size={16} />}
+					/>
+					<BubbleMenuButton onClick={() => editor.chain().focus().unsetAllMarks().run()} content={<Undo size={16} />} />
 				</div>
 			</BubbleMenu>
 		)

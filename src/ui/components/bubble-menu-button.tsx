@@ -4,15 +4,15 @@ import type { ReactNode } from 'react'
 interface BubbleMenuButtonProps {
 	onClick?: () => void
 	className?: string
-	icon: ReactNode
+	content: ReactNode
 	popover?: ReactNode
 }
 
-export const BubbleMenuButton = ({ onClick, className, icon, popover }: BubbleMenuButtonProps) => (
+export const BubbleMenuButton = ({ onClick, className, content, popover }: BubbleMenuButtonProps) => (
 	<Popover>
 		<PopoverTrigger asChild>
 			<Button size="sm" variant="ghost" onClick={onClick} className={className}>
-				{icon}
+				{content}
 			</Button>
 		</PopoverTrigger>
 		{popover && <PopoverContent className="w-fit">{popover}</PopoverContent>}
