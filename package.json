@@ -9,11 +9,13 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@radix-ui/react-popover": "^1.1.1",
 		"@radix-ui/react-slot": "^1.1.0",
 		"@tiptap/extension-bubble-menu": "^2.4.0",
 		"@tiptap/extension-code": "^2.4.0",
 		"@tiptap/extension-color": "^2.4.0",
 		"@tiptap/extension-highlight": "^2.4.0",
+		"@tiptap/extension-link": "^2.4.0",
 		"@tiptap/extension-placeholder": "^2.4.0",
 		"@tiptap/extension-text-style": "^2.4.0",
 		"@tiptap/extension-underline": "^2.4.0",

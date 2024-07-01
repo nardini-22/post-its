@@ -1,6 +1,7 @@
 import { useCreateCardContext } from '@/contexts'
 import Color from '@tiptap/extension-color'
 import Highlight from '@tiptap/extension-highlight'
+import Link from '@tiptap/extension-link'
 import Placeholder from '@tiptap/extension-placeholder'
 import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
@@ -26,6 +27,9 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			Color,
 			TextStyle,
 			Highlight.configure({ multicolor: true }),
+			Link.configure({
+				autolink: true,
+			}),
 		],
 		content,
 		editorProps: {
@@ -50,7 +54,7 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			<EditorContent
 				ref={textEditorRef}
 				id={id.toString()}
-				className="cursor-text p-2 prose prose-neutral prose-sm"
+				className="cursor-text p-2 prose prose-sm prose-purple"
 				editor={editor}
 			/>
 		</span>
