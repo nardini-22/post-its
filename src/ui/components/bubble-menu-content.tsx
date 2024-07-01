@@ -1,8 +1,20 @@
-import { BubbleMenuButton, BubbleMenuLink, Input } from '@/ui'
+import { BubbleMenuButton, BubbleMenuLink, BubbleMenuMoreOptions, Input } from '@/ui'
 import { BubbleMenu, type Editor } from '@tiptap/react'
-import { Bold, Code, CodeXml, Highlighter, Italic, Link, Palette, Strikethrough, Underline, Undo } from 'lucide-react'
+import {
+	Bold,
+	Code,
+	CodeXml,
+	EllipsisVertical,
+	Highlighter,
+	Italic,
+	Link,
+	Palette,
+	Strikethrough,
+	Underline,
+	Undo,
+} from 'lucide-react'
 
-interface BubbleMenuContentProps {
+export interface BubbleMenuContentProps {
 	editor: Editor | null
 }
 
@@ -74,6 +86,7 @@ export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
 							</>
 						}
 					/>
+					<BubbleMenuButton popover={<BubbleMenuMoreOptions editor={editor} />} icon={<EllipsisVertical size={16} />} />
 					<BubbleMenuButton onClick={() => editor.chain().focus().unsetAllMarks().run()} icon={<Undo size={16} />} />
 				</div>
 			</BubbleMenu>

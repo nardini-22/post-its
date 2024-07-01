@@ -3,6 +3,9 @@ import Color from '@tiptap/extension-color'
 import Highlight from '@tiptap/extension-highlight'
 import Link from '@tiptap/extension-link'
 import Placeholder from '@tiptap/extension-placeholder'
+import Subscript from '@tiptap/extension-subscript'
+import Superscript from '@tiptap/extension-superscript'
+import TextAlign from '@tiptap/extension-text-align'
 import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
 import { EditorContent, useEditor } from '@tiptap/react'
@@ -29,6 +32,11 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			Highlight.configure({ multicolor: true }),
 			Link.configure({
 				autolink: true,
+			}),
+			Subscript,
+			Superscript,
+			TextAlign.configure({
+				types: ['heading', 'paragraph'],
 			}),
 		],
 		content,
