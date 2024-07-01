@@ -1,23 +1,10 @@
-import { Button, Input } from '@/ui'
+import { BubbleMenuButton, Input } from '@/ui'
 import { BubbleMenu, type Editor } from '@tiptap/react'
 import { Bold, Code, CodeXml, Highlighter, Italic, Link, Palette, Strikethrough, Underline, Undo } from 'lucide-react'
-import type { ReactNode } from 'react'
 
 interface BubbleMenuContentProps {
 	editor: Editor | null
 }
-
-interface BubbleMenuButton {
-	onClick?: () => void
-	className?: string
-	icon: ReactNode
-}
-
-const BubbleMenuButton = ({ onClick, className, icon }: BubbleMenuButton) => (
-	<Button size="sm" variant="ghost" onClick={onClick} className={className}>
-		{icon}
-	</Button>
-)
 
 export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
 	return (
