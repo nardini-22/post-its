@@ -107,3 +107,19 @@
     height: 0;
     pointer-events: none;
   }
+
+  .is-active{
+    background: #F4F4F5;
+  }
+
+  .tippy-box {
+    max-width: fit-content !important;
+  }
+
+  code {
+    background-color: rgba(88, 5, 255, .05);
+    border-radius: 0.4rem;
+    color: #000;
+    font-size: 0.85rem;
+    padding: 0.25em 0.3em;
+  }

@@ -1,5 +1,9 @@
 import { useCreateCardContext } from '@/contexts'
+import Code from '@tiptap/extension-code'
+import Color from '@tiptap/extension-color'
+import Highlight from '@tiptap/extension-highlight'
 import Placeholder from '@tiptap/extension-placeholder'
+import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
@@ -20,6 +24,10 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 				placeholder: 'Escreva uma anotação...',
 			}),
 			Underline,
+			Code,
+			Color,
+			TextStyle,
+			Highlight.configure({ multicolor: true }),
 		],
 		content,
 		editorProps: {
