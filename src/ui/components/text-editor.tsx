@@ -1,4 +1,5 @@
 import { useCreateCardContext } from '@/contexts'
+import { BubbleMenuContent } from '@/ui'
 import Color from '@tiptap/extension-color'
 import Highlight from '@tiptap/extension-highlight'
 import Link from '@tiptap/extension-link'
@@ -10,7 +11,6 @@ import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import { BubbleMenuContent } from './bubble-menu-content'
 
 interface TextEditorProps {
 	id: number
