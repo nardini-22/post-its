@@ -1,90 +1,89 @@
 import { Button, Input } from '@/ui'
 import { BubbleMenu, type Editor } from '@tiptap/react'
 import { Bold, Code, CodeXml, Highlighter, Italic, Link, Palette, Strikethrough, Underline, Undo } from 'lucide-react'
+import type { ReactNode } from 'react'
 
 interface BubbleMenuContentProps {
 	editor: Editor | null
 }
+
+interface BubbleMenuButton {
+	onClick?: () => void
+	className?: string
+	icon: ReactNode
+}
+
+const BubbleMenuButton = ({ onClick, className, icon }: BubbleMenuButton) => (
+	<Button size="sm" variant="ghost" onClick={onClick} className={className}>
+		{icon}
+	</Button>
+)
 
 export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
 	return (
 		editor && (
 			<BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
 				<div className="bg-white border border-solid border-gray-200 rounded-xl flex p-1 gap-1">
-					<Button
-						size="sm"
-						variant="ghost"
+					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleBold().run()}
 						className={editor.isActive('bold') ? 'is-active' : ''}
-					>
-						<Bold size={16} />
-					</Button>
-					<Button
-						size="sm"
-						variant="ghost"
+						icon={<Bold size={16} />}
+					/>
+					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleItalic().run()}
 						className={editor.isActive('italic') ? 'is-active' : ''}
-					>
-						<Italic size={16} />
-					</Button>
-					<Button
-						size="sm"
-						variant="ghost"
+						icon={<Italic size={16} />}
+					/>
+					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleUnderline().run()}
 						className={editor.isActive('underline') ? 'is-active' : ''}
-					>
-						<Underline size={16} />
-					</Button>
-					<Button
-						size="sm"
-						variant="ghost"
+						icon={<Underline size={16} />}
+					/>
+					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleStrike().run()}
 						className={editor.isActive('strike') ? 'is-active' : ''}
-					>
-						<Strikethrough size={16} />
-					</Button>
-					<Button
-						size="sm"
-						variant="ghost"
+						icon={<Strikethrough size={16} />}
+					/>
+					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleCode().run()}
 						className={editor.isActive('code') ? 'is-active' : ''}
-					>
-						<Code size={16} />
-					</Button>
-					<Button
-						size="sm"
-						variant="ghost"
+						icon={<Code size={16} />}
+					/>
+					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleCodeBlock().run()}
 						className={editor.isActive('codeBlock') ? 'is-active' : ''}
-					>
-						<CodeXml size={16} />
-					</Button>
-					<Button size="sm" variant="ghost">
-						{/* fazer a função do link */}
-						<Link size={16} />
-					</Button>
-
-					<Button size="sm" variant="ghost" className={`relative ${editor.isActive('highlight') ? 'is-active' : ''}`}>
-						<Highlighter size={16} />
-						<Input
-							type="color"
-							className="opacity-0 absolute"
-							onChange={(event) => editor.chain().focus().toggleHighlight({ color: event.target.value }).run()}
-							value={editor.getAttributes('textStyle').color}
-						/>
-					</Button>
-					<Button size="sm" variant="ghost" className={`relative ${editor.isActive('textStyle') ? 'is-active' : ''}`}>
-						<Palette size={16} />
-						<Input
-							type="color"
-							className="opacity-0 absolute"
-							onChange={(event) => editor.chain().focus().setColor(event.target.value).run()}
-							value={editor.getAttributes('textStyle').color}
-						/>
-					</Button>
-					<Button size="sm" variant="ghost" onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-						<Undo size={16} />
-					</Button>
+						icon={<CodeXml size={16} />}
+					/>
+					<BubbleMenuButton onClick={() => {}} className="" icon={<Link size={16} />} />
+					<BubbleMenuButton
+						className={`relative ${editor.isActive('highlight') ? 'is-active' : ''}`}
+						icon={
+							<>
+								<Highlighter size={16} />
+								<Input
+									type="color"
+									className="opacity-0 absolute"
+									onChange={(event) => editor.chain().focus().toggleHighlight({ color: event.target.value }).run()}
+									value={editor.getAttributes('textStyle').color}
+								/>
+							</>
+						}
+					/>
+					<BubbleMenuButton
+						className={`relative ${editor.isActive('textStyle') ? 'is-active' : ''}`}
+						icon={
+							<>
+								<Palette size={16} />
+								<Input
+									type="color"
+									className="opacity-0 absolute"
+									onChange={(event) => editor.chain().focus().setColor(event.target.value).run()}
+									value={editor.getAttributes('textStyle').color}
+								/>
+							</>
+						}
+					/>
+					<BubbleMenuButton onClick={() => editor.chain().focus().unsetAllMarks().run()} icon={<Undo size={16} />} />
 				</div>
 			</BubbleMenu>
 		)
