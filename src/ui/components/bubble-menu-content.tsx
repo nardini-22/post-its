@@ -1,14 +1,12 @@
-import { BubbleMenuButton, Button, Input } from '@/ui'
+import { BubbleMenuButton, BubbleMenuLink, Input } from '@/ui'
 import { BubbleMenu, type Editor } from '@tiptap/react'
 import { Bold, Code, CodeXml, Highlighter, Italic, Link, Palette, Strikethrough, Underline, Undo } from 'lucide-react'
-import { useState } from 'react'
 
 interface BubbleMenuContentProps {
 	editor: Editor | null
 }
 
 export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
-	const [url, setUrl] = useState<string>('')
 	return (
 		editor && (
 			<BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
@@ -46,17 +44,7 @@ export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
 					<BubbleMenuButton
 						className={editor.isActive('link') ? 'is-active' : ''}
 						icon={<Link size={16} />}
-						popover={
-							<div className="flex gap-4">
-								<Input type="url" placeholder="Enter URL" onChange={(e) => setUrl(e.target.value)} />
-								<Button
-									onClick={() => editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run()}
-									disabled={!url.includes('https://')}
-								>
-									Set Link
-								</Button>
-							</div>
-						}
+						popover={<BubbleMenuLink editor={editor} />}
 					/>
 					<BubbleMenuButton
 						className={`relative ${editor.isActive('highlight') ? 'is-active' : ''}`}
