@@ -1,4 +1,4 @@
-import { CreateCardButton } from '@/components'
+import { CreateCardButton } from '@/ui'
 
 function App() {
 	return <CreateCardButton />

@@ -1,4 +1,4 @@
-import { TextEditor } from '@/components'
+import { TextEditor } from '@/ui'
 import { Rnd, type Props } from 'react-rnd'
 
 export interface CardProps extends Props {

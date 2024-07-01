@@ -1,6 +1,6 @@
+import App from '@/ui/app'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
 import { CreateCardContextProvider } from './contexts/CreateCardContext/CreateCardContextProvider'
 import './global.css'
 
