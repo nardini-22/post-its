@@ -1,11 +1,16 @@
 import { useCreateCardContext } from '@/contexts'
 import { BubbleMenuContent } from '@/ui'
+import BulletList from '@tiptap/extension-bullet-list'
 import Color from '@tiptap/extension-color'
 import Highlight from '@tiptap/extension-highlight'
 import Link from '@tiptap/extension-link'
+import ListItem from '@tiptap/extension-list-item'
+import OrderedList from '@tiptap/extension-ordered-list'
 import Placeholder from '@tiptap/extension-placeholder'
 import Subscript from '@tiptap/extension-subscript'
 import Superscript from '@tiptap/extension-superscript'
+import TaskItem from '@tiptap/extension-task-item'
+import TaskList from '@tiptap/extension-task-list'
 import TextAlign from '@tiptap/extension-text-align'
 import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
@@ -37,6 +42,13 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			Superscript,
 			TextAlign.configure({
 				types: ['heading', 'paragraph'],
+			}),
+			ListItem,
+			BulletList,
+			OrderedList,
+			TaskList,
+			TaskItem.configure({
+				nested: true,
 			}),
 		],
 		content,

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 export const Head = () => {
 	const { cardsProperties } = useCreateCardContext()
 
-	const titlePrefix = cardsProperties ? `${cardsProperties.length}` : ''
+	const titlePrefix = cardsProperties.length ? `${cardsProperties.length}` : ''
 	const title = `(${titlePrefix}) Note-it`
 
 	return (

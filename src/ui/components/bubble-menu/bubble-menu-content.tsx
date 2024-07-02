@@ -1,4 +1,4 @@
-import { BubbleMenuButton, BubbleMenuLink, BubbleMenuMoreOptions, Input } from '@/ui'
+import { BubbleMenuButton, BubbleMenuLink, BubbleMenuLists, BubbleMenuMoreOptions, Input } from '@/ui'
 import { BubbleMenu, type Editor } from '@tiptap/react'
 import {
 	Bold,
@@ -23,6 +23,7 @@ export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
 		editor && (
 			<BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
 				<div className="bg-white border border-solid border-gray-200 rounded-xl flex p-1 gap-1">
+					<BubbleMenuButton content={<Bold size={16} />} popover={<BubbleMenuLists editor={editor} />} />
 					<BubbleMenuButton
 						onClick={() => editor.chain().focus().toggleBold().run()}
 						className={editor.isActive('bold') ? 'is-active' : ''}
