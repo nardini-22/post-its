@@ -21,6 +21,11 @@ module.exports = {
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
+					blue: 'hsl(var(--primary-blue))',
+					pink: 'hsl(var(--primary-pink))',
+					green: 'hsl(var(--primary-green))',
+					yellow: 'hsl(var(--primary-yellow))',
+					orange: 'hsl(var(--primary-orange))',
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',

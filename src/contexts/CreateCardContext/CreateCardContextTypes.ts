@@ -23,4 +23,6 @@ export type CreateCardContextTypes = {
 	textEditorRef: (node: HTMLElement | null) => void
 	disableDragging: boolean
 	setDisableDragging: Dispatch<SetStateAction<CreateCardContextTypes['disableDragging']>>
+	selectedColor: string
+	setSelectedColor: Dispatch<SetStateAction<CreateCardContextTypes['selectedColor']>>
 }

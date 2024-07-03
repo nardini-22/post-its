@@ -3,18 +3,50 @@ import { Button, Card } from '@/ui'
 import { Plus } from 'lucide-react'
 
 export const CreateCardButton = () => {
-	const { cardsProperties, handleCreateEmptyCard, handleEditCardProperties, disableDragging } = useCreateCardContext()
+	const {
+		cardsProperties,
+		handleCreateEmptyCard,
+		handleEditCardProperties,
+		disableDragging,
+		selectedColor,
+		setSelectedColor,
+	} = useCreateCardContext()
+
+	const colorsArray = [
+		'bg-primary-blue',
+		'bg-primary-pink',
+		'bg-primary-green',
+		'bg-primary-yellow',
+		'bg-primary-orange',
+	]
 
 	return (
 		<>
-			<Button variant="outline" onClick={() => handleCreateEmptyCard()}>
-				<Plus />
-			</Button>
+			<div className="m-2 flex flex-col w-fit gap-2 p-2 ring-1 ring-black shadow-sm rounded">
+				<Button
+					className="hover:ring-black hover:ring-1 hover:bg-transparent active:scale-90"
+					variant="ghost"
+					onClick={() => handleCreateEmptyCard()}
+				>
+					<Plus />
+				</Button>
+				<div className="grid grid-cols-2 grid-rows-3 gap-2">
+					{colorsArray.map((color) => {
+						return (
+							<Button
+								key={color}
+								className={`${color === selectedColor && 'ring-black ring-2'} ${color} hover:${color} hover:ring-2 hover:ring-black active:scale-90 w-10 h-10`}
+								onClick={() => setSelectedColor(color)}
+							/>
+						)
+					})}
+				</div>
+			</div>
 
 			{cardsProperties.map((cardProperties) => {
 				return (
 					<Card
-						className="bg-red-500"
+						className={`${cardProperties.color}`}
 						id={cardProperties.id}
 						key={cardProperties.id}
 						bounds="window"

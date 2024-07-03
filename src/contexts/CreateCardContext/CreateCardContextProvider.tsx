@@ -10,6 +10,7 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 		height: 0,
 	})
 	const [disableDragging, setDisableDragging] = useState<boolean>(false)
+	const [selectedColor, setSelectedColor] = useState('bg-primary-blue')
 
 	const textEditorRef = useCallback((node: HTMLElement | null) => {
 		if (!node) return
@@ -26,7 +27,7 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 	const emptyCard = {
 		id: cardsProperties.length + 1,
 		content: '',
-		color: '',
+		color: selectedColor,
 		lastPosition: { x: 0, y: 0 },
 		lastSize: { height: 0, width: 0 },
 		textEditorHeight: 0,
@@ -55,6 +56,8 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 				textEditorRef,
 				disableDragging,
 				setDisableDragging,
+				selectedColor,
+				setSelectedColor,
 			}}
 		>
 			{children}
