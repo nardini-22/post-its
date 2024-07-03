@@ -2,6 +2,7 @@ import { useCreateCardContext } from '@/contexts'
 import { BubbleMenuContent } from '@/ui'
 import BulletList from '@tiptap/extension-bullet-list'
 import Color from '@tiptap/extension-color'
+import Heading from '@tiptap/extension-heading'
 import Highlight from '@tiptap/extension-highlight'
 import Link from '@tiptap/extension-link'
 import ListItem from '@tiptap/extension-list-item'
@@ -49,6 +50,9 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			TaskList,
 			TaskItem.configure({
 				nested: true,
+			}),
+			Heading.configure({
+				levels: [1, 2, 3],
 			}),
 		],
 		content,
