@@ -78,6 +78,9 @@
     body {
       @apply bg-background text-foreground;
     }
+    .is-active {
+      @apply ring-2 ring-black;
+    }
   }
 
   * {
@@ -111,10 +114,6 @@
     float: left;
     height: 0;
     pointer-events: none;
-  }
-
-  .is-active{
-    background: #F4F4F5;
   }
 
   .tippy-box {

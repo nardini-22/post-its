@@ -23,11 +23,7 @@ export const CreateCardButton = () => {
 	return (
 		<>
 			<div className="m-2 flex flex-col w-fit gap-2 p-2 ring-1 ring-black shadow-sm rounded">
-				<Button
-					className="hover:ring-black hover:ring-1 hover:bg-transparent active:scale-90"
-					variant="ghost"
-					onClick={() => handleCreateEmptyCard()}
-				>
+				<Button variant="ghost" onClick={() => handleCreateEmptyCard()}>
 					<Plus />
 				</Button>
 				<div className="grid grid-cols-2 grid-rows-3 gap-2">
@@ -35,7 +31,7 @@ export const CreateCardButton = () => {
 						return (
 							<Button
 								key={color}
-								className={`${color === selectedColor && 'ring-black ring-2'} ${color} hover:${color} hover:ring-2 hover:ring-black active:scale-90 w-10 h-10`}
+								className={`${color === selectedColor && 'ring-black ring-2'} ${color} hover:${color} w-10 h-10`}
 								onClick={() => setSelectedColor(color)}
 							/>
 						)

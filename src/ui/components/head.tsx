@@ -5,7 +5,7 @@ export const Head = () => {
 	const { cardsProperties } = useCreateCardContext()
 
 	const titlePrefix = cardsProperties.length ? `${cardsProperties.length}` : ''
-	const title = `(${titlePrefix}) Note-it`
+	const title = `${titlePrefix && `(${titlePrefix})`} Note-it`
 
 	return (
 		<Helmet>
