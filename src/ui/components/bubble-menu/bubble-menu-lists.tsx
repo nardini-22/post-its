@@ -45,7 +45,7 @@ export const BubbleMenuLists = ({ editor }: BubbleMenuListsProps) => {
 					}
 				/>
 			</div>
-			<div className="flex flex-col gap-1 p-1">
+			<div className="flex flex-col gap-2">
 				<p>Lists</p>
 				<BubbleMenuButton
 					onClick={() => editor.chain().focus().toggleBulletList().run()}

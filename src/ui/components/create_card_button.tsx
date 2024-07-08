@@ -47,7 +47,7 @@ export const CreateCardButton = () => {
 							x: cardProperties.lastPosition.x || 200,
 							y: cardProperties.lastPosition.y || 100,
 						}}
-						minHeight={cardProperties.textEditorHeight}
+						minHeight={cardProperties.textEditorHeight + 32}
 						minWidth={200}
 						content={cardProperties.content}
 						enableUserSelectHack={false}
