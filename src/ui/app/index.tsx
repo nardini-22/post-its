@@ -1,10 +1,10 @@
-import { CreateCardButton } from '@/ui'
+import { CreateCardButton, Head, Header } from '@/ui'
 import { HelmetProvider } from 'react-helmet-async'
-import { Head } from '../components/head'
 
 function App() {
 	return (
 		<HelmetProvider>
+			<Header />
 			<CreateCardButton />
 			<Head />
 		</HelmetProvider>

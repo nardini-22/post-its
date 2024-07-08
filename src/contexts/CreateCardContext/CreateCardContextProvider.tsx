@@ -1,5 +1,5 @@
 import { useLocalStorage } from '@/hooks'
-import { useCallback, useEffect, useState, type PropsWithChildren } from 'react'
+import { type PropsWithChildren, useCallback, useEffect, useState } from 'react'
 import { CreateCardContext } from './CreateCardContext'
 import type { CardPropertiesProps, TextEditorPropertiesProps } from './CreateCardContextTypes'
 
@@ -45,6 +45,10 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 		)
 	}
 
+	const handleDeleteAllCards = () => {
+		setCardsProperties([])
+	}
+
 	return (
 		<CreateCardContext.Provider
 			value={{
@@ -58,6 +62,7 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 				setDisableDragging,
 				selectedColor,
 				setSelectedColor,
+				handleDeleteAllCards,
 			}}
 		>
 			{children}

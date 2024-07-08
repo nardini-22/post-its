@@ -25,4 +25,5 @@ export type CreateCardContextTypes = {
 	setDisableDragging: Dispatch<SetStateAction<CreateCardContextTypes['disableDragging']>>
 	selectedColor: string
 	setSelectedColor: Dispatch<SetStateAction<CreateCardContextTypes['selectedColor']>>
+	handleDeleteAllCards: () => void
 }

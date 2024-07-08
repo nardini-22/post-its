@@ -70,7 +70,7 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			<EditorContent
 				ref={textEditorRef}
 				id={id.toString()}
-				className="cursor-text p-2 prose prose-sm prose-purple"
+				className="cursor-text p-2 prose prose-sm prose-purple w-full h-full"
 				editor={editor}
 			/>
 		</span>
