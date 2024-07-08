@@ -21,11 +21,26 @@ module.exports = {
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
-					blue: 'hsl(var(--primary-blue))',
-					pink: 'hsl(var(--primary-pink))',
-					green: 'hsl(var(--primary-green))',
-					yellow: 'hsl(var(--primary-yellow))',
-					orange: 'hsl(var(--primary-orange))',
+					blue: {
+						DEFAULT: 'hsl(var(--primary-blue))',
+						dark: 'hsl(var(--primary-blue-dark))',
+					},
+					pink: {
+						DEFAULT: 'hsl(var(--primary-pink))',
+						dark: 'hsl(var(--primary-pink-dark))',
+					},
+					green: {
+						DEFAULT: 'hsl(var(--primary-green))',
+						dark: 'hsl(var(--primary-green-dark))',
+					},
+					yellow: {
+						DEFAULT: 'hsl(var(--primary-yellow))',
+						dark: 'hsl(var(--primary-yellow-dark))',
+					},
+					orange: {
+						DEFAULT: 'hsl(var(--primary-orange))',
+						dark: 'hsl(var(--primary-orange-dark))',
+					},
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',

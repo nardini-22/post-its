@@ -9,7 +9,6 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 		id: 0,
 		height: 0,
 	})
-	const [disableDragging, setDisableDragging] = useState<boolean>(false)
 	const [selectedColor, setSelectedColor] = useState('bg-primary-blue')
 
 	const textEditorRef = useCallback((node: HTMLElement | null) => {
@@ -58,8 +57,6 @@ export const CreateCardContextProvider = ({ children }: PropsWithChildren) => {
 				handleEditCardProperties,
 				textEditorProperties,
 				textEditorRef,
-				disableDragging,
-				setDisableDragging,
 				selectedColor,
 				setSelectedColor,
 				handleDeleteAllCards,

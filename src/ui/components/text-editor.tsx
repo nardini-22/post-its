@@ -21,7 +21,7 @@ interface TextEditorProps {
 }
 
 export const TextEditor = ({ id, content }: TextEditorProps) => {
-	const { textEditorRef, handleEditCardProperties, setDisableDragging } = useCreateCardContext()
+	const { textEditorRef, handleEditCardProperties } = useCreateCardContext()
 	const editor = useEditor({
 		extensions: [
 			StarterKit,
@@ -56,12 +56,6 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 		onUpdate: ({ editor }) => {
 			handleEditCardProperties(Number(editor.options.element.id), { content: editor.getHTML() })
 		},
-		onFocus: () => {
-			setDisableDragging(true)
-		},
-		onBlur: () => {
-			setDisableDragging(false)
-		},
 	})
 
 	return (
@@ -70,7 +64,7 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			<EditorContent
 				ref={textEditorRef}
 				id={id.toString()}
-				className="cursor-text p-2 prose prose-sm prose-purple w-full h-full"
+				className="cursor-text p-2 prose prose-sm prose-purple"
 				editor={editor}
 			/>
 		</span>

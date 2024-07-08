@@ -3,14 +3,8 @@ import { Button, Card } from '@/ui'
 import { Plus } from 'lucide-react'
 
 export const CreateCardButton = () => {
-	const {
-		cardsProperties,
-		handleCreateEmptyCard,
-		handleEditCardProperties,
-		disableDragging,
-		selectedColor,
-		setSelectedColor,
-	} = useCreateCardContext()
+	const { cardsProperties, handleCreateEmptyCard, handleEditCardProperties, selectedColor, setSelectedColor } =
+		useCreateCardContext()
 
 	const colorsArray = [
 		'bg-primary-blue',
@@ -42,21 +36,21 @@ export const CreateCardButton = () => {
 			{cardsProperties.map((cardProperties) => {
 				return (
 					<Card
-						className={`${cardProperties.color}`}
+						className={cardProperties.color}
+						color={cardProperties.color}
 						id={cardProperties.id}
 						key={cardProperties.id}
 						bounds="window"
 						default={{
 							height: cardProperties.lastSize.height || 'auto',
 							width: cardProperties.lastSize.width || 'auto',
-							x: cardProperties.lastPosition.x || 100,
+							x: cardProperties.lastPosition.x || 200,
 							y: cardProperties.lastPosition.y || 100,
 						}}
 						minHeight={cardProperties.textEditorHeight}
 						minWidth={200}
 						content={cardProperties.content}
 						enableUserSelectHack={false}
-						disableDragging={disableDragging}
 						onDragStop={(_, d) =>
 							handleEditCardProperties(Number(d.node.id), { lastPosition: { x: d.lastX, y: d.lastY } })
 						}
@@ -66,6 +60,7 @@ export const CreateCardButton = () => {
 								lastSize: { height: ref.offsetHeight, width: ref.offsetWidth },
 							})
 						}
+						dragHandleClassName="drag-handle"
 					/>
 				)
 			})}
