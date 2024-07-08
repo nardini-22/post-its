@@ -1,7 +1,7 @@
-import { BubbleMenuButton, type BubbleMenuPopoverProps } from '@/ui'
+import { BubbleMenuButton, type BubbleMenuContentProps } from '@/ui'
 import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Subscript, Superscript } from 'lucide-react'
 
-interface BubbleMenuMoreOptionsProps extends BubbleMenuPopoverProps {}
+interface BubbleMenuMoreOptionsProps extends BubbleMenuContentProps {}
 
 export const BubbleMenuMoreOptions = ({ editor }: BubbleMenuMoreOptionsProps) => {
 	return (

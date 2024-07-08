@@ -1,18 +1,13 @@
 import { useCreateCardContext } from '@/contexts'
 import { BubbleMenuContent } from '@/ui'
-import BulletList from '@tiptap/extension-bullet-list'
 import Color from '@tiptap/extension-color'
-import Heading from '@tiptap/extension-heading'
 import Highlight from '@tiptap/extension-highlight'
 import Link from '@tiptap/extension-link'
-import ListItem from '@tiptap/extension-list-item'
-import OrderedList from '@tiptap/extension-ordered-list'
 import Placeholder from '@tiptap/extension-placeholder'
 import Subscript from '@tiptap/extension-subscript'
 import Superscript from '@tiptap/extension-superscript'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
-import Text from '@tiptap/extension-text'
 import TextAlign from '@tiptap/extension-text-align'
 import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
@@ -46,17 +41,10 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			TextAlign.configure({
 				types: ['heading', 'paragraph'],
 			}),
-			ListItem,
-			BulletList,
-			OrderedList,
 			TaskList,
 			TaskItem.configure({
 				nested: true,
 			}),
-			Heading.configure({
-				levels: [1, 2, 3],
-			}),
-			Text,
 			FontSize,
 		],
 		content,
@@ -78,7 +66,7 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 
 	return (
 		<span>
-			<BubbleMenuContent editor={editor} />
+			{editor && <BubbleMenuContent editor={editor} />}
 			<EditorContent
 				ref={textEditorRef}
 				id={id.toString()}

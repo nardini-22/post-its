@@ -1,7 +1,7 @@
-import { type BubbleMenuPopoverProps, Button, Input } from '@/ui'
+import { type BubbleMenuContentProps, Button, Input } from '@/ui'
 import { useState } from 'react'
 
-interface BubbleMenuLinkProps extends BubbleMenuPopoverProps {}
+interface BubbleMenuLinkProps extends BubbleMenuContentProps {}
 
 export const BubbleMenuLink = ({ editor }: BubbleMenuLinkProps) => {
 	const [url, setUrl] = useState<string>('')

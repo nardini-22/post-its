@@ -1,6 +1,6 @@
-import { BubbleMenuButton, type BubbleMenuPopoverProps } from '@/ui'
+import { BubbleMenuButton, type BubbleMenuContentProps } from '@/ui'
 
-export interface BubbleMenuSizesProps extends BubbleMenuPopoverProps {}
+export interface BubbleMenuSizesProps extends BubbleMenuContentProps {}
 
 export const BubbleMenuSizes = ({ editor }: BubbleMenuSizesProps) => {
 	return (
@@ -17,7 +17,7 @@ export const BubbleMenuSizes = ({ editor }: BubbleMenuSizesProps) => {
 				/>
 				<BubbleMenuButton
 					onClick={() => editor.chain().focus().setFontSize('14px').run()}
-					className={`justify-start ${editor.isActive('textStyle', { fontSize: '14px' }) ? 'is-active' : ''}`}
+					className={`justify-start ${editor.isActive({ fontSize: '14px' }) ? 'is-active' : ''}`}
 					content={
 						<div>
 							<span className="text-sm">Small</span>
@@ -26,7 +26,7 @@ export const BubbleMenuSizes = ({ editor }: BubbleMenuSizesProps) => {
 				/>
 				<BubbleMenuButton
 					onClick={() => editor.chain().focus().setFontSize('16px').run()}
-					className={`justify-start ${editor.isActive('textStyle', { fontSize: '16px' }) ? 'is-active' : ''}`}
+					className={`justify-start ${editor.isActive({ fontSize: '16px' }) ? 'is-active' : ''}`}
 					content={
 						<div>
 							<span className="text-base">Medium</span>
