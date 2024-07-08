@@ -1,10 +1,7 @@
-import type { Editor } from '@tiptap/react'
+import { BubbleMenuButton, type BubbleMenuPopoverProps } from '@/ui'
 import { Heading1, Heading2, Heading3, List, ListOrdered, ListTodo, Pilcrow } from 'lucide-react'
-import { BubbleMenuButton } from './bubble-menu-button'
 
-interface BubbleMenuListsProps {
-	editor: Editor
-}
+interface BubbleMenuListsProps extends BubbleMenuPopoverProps {}
 
 export const BubbleMenuLists = ({ editor }: BubbleMenuListsProps) => {
 	return (

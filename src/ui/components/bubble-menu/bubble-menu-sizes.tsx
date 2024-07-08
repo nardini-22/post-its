@@ -1,9 +1,6 @@
-import type { Editor } from '@tiptap/react'
-import { BubbleMenuButton } from './bubble-menu-button'
+import { BubbleMenuButton, type BubbleMenuPopoverProps } from '@/ui'
 
-export interface BubbleMenuSizesProps {
-	editor: Editor
-}
+export interface BubbleMenuSizesProps extends BubbleMenuPopoverProps {}
 
 export const BubbleMenuSizes = ({ editor }: BubbleMenuSizesProps) => {
 	return (

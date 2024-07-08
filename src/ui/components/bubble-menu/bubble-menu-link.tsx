@@ -1,10 +1,7 @@
-import { Button, Input } from '@/ui'
-import type { Editor } from '@tiptap/react'
+import { type BubbleMenuPopoverProps, Button, Input } from '@/ui'
 import { useState } from 'react'
 
-interface BubbleMenuLinkProps {
-	editor: Editor
-}
+interface BubbleMenuLinkProps extends BubbleMenuPopoverProps {}
 
 export const BubbleMenuLink = ({ editor }: BubbleMenuLinkProps) => {
 	const [url, setUrl] = useState<string>('')

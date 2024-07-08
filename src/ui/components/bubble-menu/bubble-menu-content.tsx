@@ -18,6 +18,10 @@ export interface BubbleMenuContentProps {
 	editor: Editor | null
 }
 
+export interface BubbleMenuPopoverProps {
+	editor: Editor
+}
+
 export const BubbleMenuContent = ({ editor }: BubbleMenuContentProps) => {
 	return (
 		editor && (
