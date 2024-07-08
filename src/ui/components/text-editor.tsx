@@ -12,11 +12,13 @@ import Subscript from '@tiptap/extension-subscript'
 import Superscript from '@tiptap/extension-superscript'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
+import Text from '@tiptap/extension-text'
 import TextAlign from '@tiptap/extension-text-align'
 import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import FontSize from 'tiptap-extension-font-size'
 
 interface TextEditorProps {
 	id: number
@@ -54,6 +56,8 @@ export const TextEditor = ({ id, content }: TextEditorProps) => {
 			Heading.configure({
 				levels: [1, 2, 3],
 			}),
+			Text,
+			FontSize,
 		],
 		content,
 		editorProps: {

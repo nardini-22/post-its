@@ -25,6 +25,7 @@
 		"@tiptap/extension-superscript": "^2.4.0",
 		"@tiptap/extension-task-item": "^2.4.0",
 		"@tiptap/extension-task-list": "^2.4.0",
+		"@tiptap/extension-text": "^2.4.0",
 		"@tiptap/extension-text-align": "^2.4.0",
 		"@tiptap/extension-text-style": "^2.4.0",
 		"@tiptap/extension-underline": "^2.4.0",
@@ -39,7 +40,8 @@
 		"react-helmet-async": "^2.0.5",
 		"react-rnd": "^10.4.11",
 		"tailwind-merge": "^2.3.0",
-		"tailwindcss-animate": "^1.0.7"
+		"tailwindcss-animate": "^1.0.7",
+		"tiptap-extension-font-size": "^1.2.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.2",

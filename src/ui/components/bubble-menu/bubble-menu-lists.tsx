@@ -9,7 +9,7 @@ interface BubbleMenuListsProps {
 export const BubbleMenuLists = ({ editor }: BubbleMenuListsProps) => {
 	return (
 		<div>
-			<div className="flex flex-col gap-1 p-1">
+			<div className="flex flex-col gap-2">
 				<p>Hierarchy</p>
 				<BubbleMenuButton
 					onClick={() => editor.chain().focus().setParagraph().run()}

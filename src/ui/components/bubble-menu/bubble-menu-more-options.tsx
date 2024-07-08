@@ -8,7 +8,7 @@ interface BubbleMenuMoreOptionsProps {
 
 export const BubbleMenuMoreOptions = ({ editor }: BubbleMenuMoreOptionsProps) => {
 	return (
-		<div className="gap-1 p-1">
+		<div className="flex gap-2">
 			<BubbleMenuButton
 				onClick={() => editor.chain().focus().toggleSubscript().run()}
 				className={editor.isActive('subscript') ? 'is-active' : ''}
